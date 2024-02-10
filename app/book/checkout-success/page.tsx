@@ -8,7 +8,6 @@ const PurchaseSuccess = () => {
     const [bookUrl, setBookUrl] = useState(null)
     const searchParams = useSearchParams();
     const sessionId = searchParams.get("session_id")
-    // console.log(sessionId);
     useEffect(() => {
         const fetchData = async () => {
             if (sessionId) {
@@ -43,7 +42,8 @@ const PurchaseSuccess = () => {
         </p>
         <div className="mt-6 text-center">
           <Link
-            href={`/book/${bookUrl}`}
+            // href={`/book/${bookUrl}`}
+            href={`/profile`}
             className="text-indigo-600 hover:text-indigo-800 transition duration-300"
           >
             購入した記事を読む

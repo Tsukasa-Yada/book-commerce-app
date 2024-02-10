@@ -18,7 +18,6 @@ export default async function Home() {
       {cache: "no-store"}//SSR
     )
     const purchasesData = await response.json();
-    console.log(purchasesData)
 
     purchaseBookIds = purchasesData.map(
       (purchaseBook: Purchase) => purchaseBook.bookId
@@ -35,7 +34,8 @@ export default async function Home() {
           <Book
             key={book.id}
             book={book}
-            isPurchased={purchaseBookIds?.includes(book.id)} />
+            isPurchased={purchaseBookIds?.includes(book.id)}
+            user= {user} />
         ))}
       </main>
     </>
