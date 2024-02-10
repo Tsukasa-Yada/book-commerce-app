@@ -9,8 +9,11 @@ export const client = createClient({
 export const getAllBooks = async () => {
     const allBooks = await client.getList<BookType>({
       endpoint: "bookcommerce",
+      //ISR
       customRequestInit: {
-        cache: "no-store",
+        next: {
+          revalidate: 3600
+        },
       }
     })
 
@@ -21,6 +24,7 @@ export const getDetailBook = async (contentId: string) => {
   const detailBook = await client.getListDetail<BookType>({
     endpoint: "bookcommerce",
     contentId,
+    //SSR
     customRequestInit: {
       cache: "no-store",
     }
